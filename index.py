@@ -13,13 +13,29 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-import webapp2
 
-class MainHandler(webapp2.RequestHandler):
+import os
+import webapp2
+import jinja2
+import json
+import cgi
+from bs4 import BeautifulSoup
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__) + '/Templates/'),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
+
+class IndexHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        display ="";
+        code = "";
+        template_values = {
+            "site_name": "NewFields",
+            "site_description": "Non-ascii converter",
+        }
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.out.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', IndexHandler)
 ], debug=True)

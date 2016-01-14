@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+
+
+  <script type="text/javascript" src="../js/index.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Implementation of Search App -->
+<div ng-app="searchApp" ng-controller="myCtrl">
+
+  <!-- Entry Section -->
+  <section>
+
+   <div class="jumbotron clearfix">
+
+     <!-- Site Info -->
+      <div class="col-lg-4 ">
+        <h1>{{site_name}}</h1>
+        <h4>{{site_description}}</h4>
+      </div><!-- /.col-lg-4 -->
+
+     <!--  Menu -->
+     <div id="menu" class="col-lg-12">
+     <label for="nav">Choose a language, then a symbol, then customize!</label>
+      <ul id="nav" class="nav nav-tabs">
+        <li><a href="#" ng-click="generateUnicode(0, 127)">Basic Latin</a></li>
+        <li><a href="#" ng-click="generateUnicode(128, 255)">Latin-1 Supplement</a></li>
+        <li><a   ng-click="generateUnicode(256, 383)">Latin Extended-A</a></li>
+        <li><a   ng-click="generateUnicode(384, 591)">Latin Extended-B</a></li>
+        <li><a   ng-click="generateUnicode(592, 687)">IPA Extensions</a></li>
+        <li><a   ng-click="generateUnicode(688, 767)">Spacing Modifier Letters</a></li>
+        <li><a   ng-click="generateUnicode(768, 879)">Combining Diacritical Marks</a></li>
+        <li><a   ng-click="generateUnicode(880, 1023)">Greek</a></li>
+        <li><a   ng-click="generateUnicode(1024, 1279)">Cyrillic</a></li>
+        <li><a   ng-click="generateUnicode(1328, 1423)">Armenian</a></li>
+        <li><a   ng-click="generateUnicode(1424, 1535)">Hebrew</a></li>
+        <li><a   ng-click="generateUnicode(1536, 1791)">Arabic</a></li>
+        <li><a   ng-click="generateUnicode(1792, 1871)">Syriac</a></li>
+        <li><a   ng-click="generateUnicode(1920, 1983)">Thaana</a></li>
+        <li><a   ng-click="generateUnicode(2304, 2431)">Devanagari</a></li>
+        <li><a   ng-click="generateUnicode(2432, 2559)">Bengali</a></li>
+        <li><a   ng-click="generateUnicode(2560, 2687)">Gurmukhi</a></li>
+        <li><a   ng-click="generateUnicode(2688, 2815)">Gujarati</a></li>
+        <li><a   ng-click="generateUnicode(2816, 2943)">Oriya</a></li>
+        <li><a   ng-click="generateUnicode(2944, 3071)">Tamil</a></li>
+        <li><a   ng-click="generateUnicode(3072, 3199)">Telugu</a></li>
+        <li><a   ng-click="generateUnicode(3200, 3327)">Kannada</a></li>
+        <li><a   ng-click="generateUnicode(3328, 3455)">Malayalam</a></li>
+        <li><a   ng-click="generateUnicode(3456, 3583)">Sinhala</a></li>
+        <li><a   ng-click="generateUnicode(3584, 3711)">Thai</a></li>
+        <li><a   ng-click="generateUnicode(3712, 3839)">Lao</a></li>
+        <li><a   ng-click="generateUnicode(3840, 4095)">Tibetan</a></li>
+        <li><a   ng-click="generateUnicode(4096, 4255)">Myanmar</a></li>
+        <li><a   ng-click="generateUnicode(4256, 4351)">Georgian</a></li>
+        <li><a   ng-click="generateUnicode(4352, 4607)">Hangul Jamo</a></li>
+        <li><a   ng-click="generateUnicode(4608, 4991)">Ethiopic</a></li>
+        <li><a   ng-click="generateUnicode(5024, 5119)">Cherokee</a></li>
+        <li><a   ng-click="generateUnicode(5120, 5759)">Unified Canadian Aboriginal Syllabics</a></li>
+        <li><a   ng-click="generateUnicode(5760, 5791)">Ogham</a></li>
+        <li><a   ng-click="generateUnicode(5792, 5887)">Runic</a></li>
+        <li><a   ng-click="generateUnicode(6016, 6143)">Khmer</a></li>
+        <li><a   ng-click="generateUnicode(6144, 6319)">Mongolian</a></li>
+        <li><a   ng-click="generateUnicode(7680, 7935)">Latin Extended Additional</a></li>
+        <li><a   ng-click="generateUnicode(7936, 8191)">Greek Extended</a></li>
+        <li><a   ng-click="generateUnicode(8192, 8303)">General Punctuation</a></li>
+        <li><a   ng-click="generateUnicode(8304, 8351)">Superscripts and Subscripts</a></li>
+        <li><a   ng-click="generateUnicode(8352, 8399)">Currency Symbols</a></li>
+        <li><a   ng-click="generateUnicode(8400, 8447)">Combining Marks for Symbols</a></li>
+        <li><a   ng-click="generateUnicode(8448, 8527)">Letterlike Symbols</a></li>
+        <li><a   ng-click="generateUnicode(8528, 8591)">Number Forms</a></li>
+        <li><a   ng-click="generateUnicode(8592, 8703)">Arrows</a></li>
+        <li><a   ng-click="generateUnicode(8704, 8959)">Mathematical Operators</a></li>
+        <li><a   ng-click="generateUnicode(8960, 9215)">Miscellaneous Technical</a></li>
+        <li><a   ng-click="generateUnicode(9216, 9279)">Control Pictures</a></li>
+        <li><a   ng-click="generateUnicode(9280, 9311)">Optical Character Recognition</a></li>
+        <li><a   ng-click="generateUnicode(9312, 9471)">Enclosed Alphanumerics</a></li>
+        <li><a   ng-click="generateUnicode(9472, 9599)">Box Drawing</a></li>
+        <li><a   ng-click="generateUnicode(9600, 9631)">Block Elements</a></li>
+        <li><a   ng-click="generateUnicode(9632, 9727)">Geometric Shapes</a></li>
+        <li><a   ng-click="generateUnicode(9728, 9983)">Miscellaneous Symbols</a></li>
+        <li><a   ng-click="generateUnicode(9984, 10175)">Dingbats</a></li>
+        <li><a   ng-click="generateUnicode(10240, 10495)">Braille Patterns</a></li>
+        <li><a   ng-click="generateUnicode(11904, 12031)">CJK Radicals Supplement</a></li>
+        <li><a   ng-click="generateUnicode(12032, 12255)">Kangxi Radicals</a></li>
+        <li><a   ng-click="generateUnicode(12272, 12287)">Ideographic Description Characters</a></li>
+        <li><a   ng-click="generateUnicode(12288, 12351)">CJK Symbols and Punctuation</a></li>
+        <li><a   ng-click="generateUnicode(12352, 12447)">Hiragana</a></li>
+        <li><a   ng-click="generateUnicode(12448, 12543)">Katakana</a></li>
+        <li><a   ng-click="generateUnicode(12544, 12591)">Bopomofo</a></li>
+        <li><a   ng-click="generateUnicode(12592, 12687)">Hangul Compatibility Jamo</a></li>
+        <li><a   ng-click="generateUnicode(12688, 12703)">Kanbun</a></li>
+        <li><a   ng-click="generateUnicode(12704, 12735)">Bopomofo Extended</a></li>
+        <li><a   ng-click="generateUnicode(12800, 13055)">Enclosed CJK Letters and Months</a></li>
+        <li><a   ng-click="generateUnicode(13056, 13311)">CJK Compatibility</a></li>
+        <li><a   ng-click="generateUnicode(13312, 19893)">CJK Unified Ideographs Extension A</a></li>
+        <li><a   ng-click="generateUnicode(19968, 40959)">CJK Unified Ideographs</a></li>
+        <li><a   ng-click="generateUnicode(40960, 42127)">Yi Syllables</a></li>
+        <li><a   ng-click="generateUnicode(42128, 42191)">Yi Radicals</a></li>
+        <li><a   ng-click="generateUnicode(44032, 55203)">Hangul Syllables</a></li>
+        <li><a   ng-click="generateUnicode(63744, 64255)">CJK Compatibility Ideographs</a></li>
+        <li><a   ng-click="generateUnicode(64256, 64335)">Alphabetic Presentation Forms</a></li>
+        <li><a   ng-click="generateUnicode(64336, 65023)">Arabic Presentation Forms-A</a></li>
+        <li><a   ng-click="generateUnicode(65056, 65071)">Combining Half Marks</a></li>
+        <li><a   ng-click="generateUnicode(65072, 65103)">CJK Compatibility Forms</a></li>
+        <li><a   ng-click="generateUnicode(65104, 65135)">Small Form Variants</a></li>
+        <li><a   ng-click="generateUnicode(65136, 65278)">Arabic Presentation Forms-B</a></li>
+        <li><a   ng-click="generateUnicode(65280, 65519)">Halfwidth and Fullwidth Forms</a></li>
+      </ul>
+     </div>
+     
+     <!--  Display -->
+     <div id="display" class="col-lg-12">
+      
+     </div>
+
+
+
+      <!--  Text Input Area -->
+      <div class="col-lg-8 customize">
+          
+
+            <!-- Customize Your Shorthand -->
+          
+            <label for="short_hand">Customize Your Shorthand Then Press Go! >>></label>
+            <p> Save your shorthand before you use it! (Note: storage gets deleted on page refresh)</p>
+            <div class="input-group">
+             <input id="short_hand" type="text" class="form-control" ng-model="key" placeholder="Your short hand">
+             <input id="code" type="text" class="form-control" ng-model="value" placeholder="Corresponding Unicode (in decimal format)">
+
+             <span id="store_button" class="input-group-btn">
+              <button class="btn btn-default" type="button" 
+                ng-click="sendToStorage()">Go!</button>
+             </span>
+            </div>
+            <br/>
+            <div class="input-group">
+            <label for="entry">Enter text here</label>
+            <p>Now use your short hand! Use the symbols "[" and "]" to indicate you want to use your short hand. Use # to escape the shorthand</p>
+            <textarea id="entry" ng-model="entry" class="form-control" rows="6" placeholder="Enter text"></textarea>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" 
+                ng-click="sendPost()">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+          <p>Your text appears below!</p>
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.jumbotron -->
+
+  </section><!-- /search section -->
+
+  <!-- Entry Results Section -->
+  <section>
+    <!-- Entry Results -->
+    <div id="result" class="col-lg-6">
+    </div><!-- /.col-lg-6 -->
+  </section><!-- /Query Results Section -->
+
+</div><!-- /ng-app -->
+{% endblock %}

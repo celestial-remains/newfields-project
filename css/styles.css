@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Cinzel|Black+Ops+One);
+body{
+    float: none;
+    margin: 0 auto; 
+}
+h1{
+font-family: 'Cinzel', serif;
+}
+#display{
+	overflow:scroll;
+	height:200px;
+	background: white;
+}
+.code_input{
+	width:5px;
+}
+
+li:hover{
+	background:white;
+}
+
+.customize, #menu{
+	padding:20px;
+}
